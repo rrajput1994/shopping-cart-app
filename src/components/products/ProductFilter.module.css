@@ -1,0 +1,57 @@
+.filterContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 25px 0;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 25px;
+}
+.filterTabs {
+  display: flex;
+  align-items: center;
+}
+.tabs button {
+  border: 1px solid #c4c4c4;
+  box-sizing: border-box;
+  border-radius: 30px;
+  font-weight: 500;
+  font-size: 12px;
+  color: #878787;
+  padding: 10px 15px;
+  background: #fff;
+  margin: 0 4px;
+}
+.filterTabs label {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  text-transform: uppercase;
+  color: #000000;
+  margin-right: 15px;
+}
+.priceFilter {
+  display: flex;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 62px;
+  padding: 14px 18px;
+}
+.priceFilter select.custom-select {
+  border: none;
+  padding: 0px;
+  border: none;
+  padding: 0px 8px 0 0;
+  font-size: 14px;
+  font-weight: 500;
+  background-position: right 0 center;
+  background-size: 16px 13px;
+}
+.priceFilter select.custom-select:focus {
+  outline: none;
+  box-shadow: none;
+}
+.priceFilter label {
+  width: 76px;
+  font-size: 14px;
+  font-weight: 400;
+}

@@ -1,0 +1,17 @@
+.productList ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(262px, auto));
+  gap: 1rem;
+}
+.allProducts h4 {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  text-transform: capitalize;
+  color: #000000;
+  margin: 0px;
+}
+.allProducts h4 span {
+  font-weight: 300;
+  color: #878787;
+}

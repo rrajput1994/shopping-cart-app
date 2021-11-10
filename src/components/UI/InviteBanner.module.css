@@ -1,0 +1,35 @@
+.inviteBanner {
+  background: linear-gradient(90.06deg, #181716 0%, #ed4e08 99.97%);
+  height: 53px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.inviteBanner p {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-transform: capitalize;
+  color: #ffffff;
+  margin: 0 85px 0 0;
+}
+.inviteBtn {
+  background: #ffffff;
+  border-radius: 20px;
+  width: 94px;
+  height: 29px;
+  font-weight: normal;
+  font-size: 14px;
+  display: block;
+  text-align: center;
+  line-height: 29px;
+  text-transform: capitalize;
+  color: #000000;
+  text-decoration: none;
+  border: none;
+}
+.inviteBtn:hover {
+  text-decoration: none;
+  color: #272727;
+}
