@@ -33,3 +33,15 @@
   text-decoration: none;
   color: #272727;
 }
+@media (max-width: 768px) {
+  .inviteBanner {
+    flex-direction: column;
+    padding: 15px;
+    height: auto;
+  }
+  .inviteBanner p {
+    text-align: center;
+    font-size: 14px;
+    margin: 0 0 10px;
+  }
+}

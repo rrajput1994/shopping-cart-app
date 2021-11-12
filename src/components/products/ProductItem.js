@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import classes from "./ProductItem.module.css";
 // import productImg from "../../assets/p-1.jpg";
@@ -14,7 +15,9 @@ const ProductItem = ({ product, onAddProduct }) => {
     <li className={classes["list-item"]}>
       <div className={classes.card}>
         <div className={classes["item-img"]}>
-          <img src={product.image} alt="product" />
+          <Link to={`/product-detail/${product.id}`}>
+            <img src={product.image} alt="product" />
+          </Link>
         </div>
         <div className={classes["card-body"]}>
           {!show && <div className={classes["title"]}>{product.name}</div>}

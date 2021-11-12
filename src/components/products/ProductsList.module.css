@@ -1,7 +1,10 @@
 .productList ul {
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(auto-fit, minmax(262px, auto));
-  gap: 1rem;
+  gap: 1rem; */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 .allProducts h4 {
   font-weight: 700;

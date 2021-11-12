@@ -47,6 +47,14 @@
   text-transform: uppercase;
   margin-bottom: 10px;
 }
+.addToCartBtn:hover,
+.addToCartBtn:focus,
+.addToCartBtn:active {
+  color: #fff;
+  background-color: #ed4e08;
+  border-color: #ed4e08;
+  box-shadow: none;
+}
 .sizes {
   font-weight: 300;
   font-size: 14px;
@@ -136,4 +144,10 @@
   line-height: 14px;
   text-transform: uppercase;
   color: red;
+}
+
+@media (max-width: 768px) {
+  .card {
+    box-shadow: 0 3px 16px 0 rgba(0, 0, 0, 11%) !important;
+  }
 }

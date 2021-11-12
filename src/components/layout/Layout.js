@@ -7,9 +7,12 @@ const Layout = (props) => {
   return (
     <section>
       <Navbar cartItems={props.cartItems} />
-      <InviteBanner />
+
       <main className={classes.main}>
-        <Container fluid>{props.children}</Container>
+        <InviteBanner />
+        <Container fluid className="pt-3">
+          {props.children}
+        </Container>
       </main>
     </section>
   );

@@ -10,7 +10,8 @@ import styled from "styled-components";
 const Styles = styled.div`
   .navbar {
     background-color: #fff;
-    hight: 70px;
+    height: 70px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.03);
   }
   .navbar .badge {
     color: #fff;
@@ -57,6 +58,16 @@ const Styles = styled.div`
       top: 15px;
     }
   }
+
+  .navbar-collapse {
+    @media (max-width: 991px) {
+      background: #fff;
+      position: absolute;
+      left: 0;
+      top: 70px;
+      width: 100%;
+    }
+  }
 `;
 
 const Navigation = (props) => {
@@ -64,7 +75,12 @@ const Navigation = (props) => {
 
   return (
     <Styles>
-      <Navbar collapseOnSelect expand="lg" variant="light">
+      <Navbar
+        collapseOnSelect
+        expand="lg"
+        variant="light"
+        className="fixed-top"
+      >
         <Container fluid>
           <Navbar.Brand as={Link} to="/">
             <img src={logo} alt="logo" />
