@@ -1,13 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { Form } from "react-bootstrap";
 import classes from "./ProductFilter.module.css";
 const ProductFilter = (props) => {
   const { onProductFilter, onSelectHander, allCategories, sort } = props;
-
-  // const selectFilterHandler = (e) => {
-  //   setSort(e.target.value);
-  //   onSelectHander(e.target.value);
-  // };
 
   return (
     <div className={classes.filterContainer}>

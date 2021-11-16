@@ -5,6 +5,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
+  justify-content: center;
 }
 .allProducts h4 {
   font-weight: 700;

@@ -10,7 +10,7 @@ const Cart = () => {
   let cartItemsList = "";
 
   if (cartContext.cartItems.length === 0) {
-    return (cartItemsList = <div>Cart is Emapty!</div>);
+    return (cartItemsList = <div className="text-center">Cart is Emapty!</div>);
   } else {
     cartItemsList = cartContext.cartItems.map((product) => {
       return (

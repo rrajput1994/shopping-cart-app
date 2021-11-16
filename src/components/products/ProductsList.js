@@ -2,18 +2,8 @@ import React, { Fragment, useEffect, useState } from "react";
 import axios from "axios";
 import ProductItem from "./ProductItem";
 import classes from "./ProductsList.module.css";
-// import Data from "../api/ProductData";
 import BreadcrumbMenu from "../UI/BreadcrumbMenu";
 import ProductFilter from "./ProductFilter";
-
-// const allCategories = [
-//   "all",
-//   ...new Set(
-//     Data.map((item) => {
-//       return item.category;
-//     })
-//   ),
-// ];
 
 const ProductsList = (props) => {
   const [products, setProducts] = useState([]);
@@ -69,7 +59,6 @@ const ProductsList = (props) => {
   const onSelectHander = (e) => {
     setSort(e.target.value);
     const sortValue = e.target.value;
-    console.log(e.target.value);
     const sortedProducts = products.sort((a, b) => {
       if (sortValue === "lowest") {
         return a.discount_price > b.discount_price ? 1 : -1;

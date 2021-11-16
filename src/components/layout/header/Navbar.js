@@ -48,14 +48,17 @@ const Styles = styled.div`
     padding: 0.2rem;
     font-size: 1rem;
     transition: box-shadow 0.15s ease-in-out;
-    margin-right: 87px;
+    margin-right: 100px;
+  }
+  .navbar-toggler:focus {
+    box-shadow: none;
   }
   .icon-nav.navbar-nav {
     @media (max-width: 991px) {
       display: flex;
       flex-direction: row;
       position: absolute;
-      right: 0;
+      right: 15px;
       top: 15px;
     }
   }
@@ -132,9 +135,9 @@ const Navigation = () => {
                 ""
               )}
             </Nav.Link>
-            <Nav.Link as={Link} to={"/login"} className="btn btn-primary">
+            {/* <Nav.Link as={Link} to={"/login"} className="btn btn-primary">
               Login
-            </Nav.Link>
+            </Nav.Link> */}
           </Nav>
         </Container>
       </Navbar>
