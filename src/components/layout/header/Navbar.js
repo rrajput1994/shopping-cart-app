@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import CartContext from "../../../store/cart-context";
 import { Link } from "react-router-dom";
 import { Nav, Navbar, Container, NavDropdown } from "react-bootstrap";
 import logo from "../../assets/images/logo.png";
@@ -70,8 +71,9 @@ const Styles = styled.div`
   }
 `;
 
-const Navigation = (props) => {
-  const { cartItems } = props;
+const Navigation = () => {
+  const cartContext = useContext(CartContext);
+  // const { cartItems } = props;
 
   return (
     <Styles>
@@ -124,11 +126,14 @@ const Navigation = (props) => {
             </Nav.Link>
             <Nav.Link as={Link} to={"/cart"}>
               <img src={cartIcon} alt="cart" />
-              {cartItems.length > 0 ? (
-                <span className="badge">{cartItems.length}</span>
+              {cartContext.cartItems.length > 0 ? (
+                <span className="badge">{cartContext.cartItems.length}</span>
               ) : (
                 ""
               )}
+            </Nav.Link>
+            <Nav.Link as={Link} to={"/login"} className="btn btn-primary">
+              Login
             </Nav.Link>
           </Nav>
         </Container>

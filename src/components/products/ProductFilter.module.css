@@ -20,6 +20,7 @@
   padding: 10px 15px;
   background: #fff;
   margin: 0 4px;
+  text-transform: capitalize;
 }
 .filterTabs label {
   font-weight: bold;

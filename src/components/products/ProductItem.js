@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import CartContext from "../../store/cart-context";
+
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import classes from "./ProductItem.module.css";
-// import productImg from "../../assets/p-1.jpg";
+
 const ProductItem = ({ product, onAddProduct }) => {
+  const cartContext = useContext(CartContext);
   const [show, setShow] = useState(false);
 
   const sizeHandler = (size) => {
@@ -24,7 +27,7 @@ const ProductItem = ({ product, onAddProduct }) => {
 
           {show && (
             <Button
-              onClick={() => onAddProduct(product)}
+              onClick={() => cartContext.addProduct(product)}
               className={classes.addToCartBtn}
             >
               Add to Cart
