@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import ProductItem from "./ProductItem";
 import classes from "./ProductsList.module.css";
@@ -6,6 +7,8 @@ import BreadcrumbMenu from "../UI/BreadcrumbMenu";
 import ProductFilter from "./ProductFilter";
 
 const ProductsList = (props) => {
+  const history = useHistory();
+
   const [products, setProducts] = useState([]);
   const [allProducts, setAllProducts] = useState([]);
   const [sort, setSort] = useState();
@@ -33,6 +36,13 @@ const ProductsList = (props) => {
   useEffect(() => {
     loadProducts();
   }, []);
+
+  // useEffect(() => {
+  //   const token = localStorage.getItem("authUser");
+  //   if (!token) {
+  //     history.push("/login");
+  //   }
+  // }, []);
 
   const totalProducts = products.length;
 

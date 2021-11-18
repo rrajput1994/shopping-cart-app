@@ -1,6 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { auth } from "../../Auth/firebase-config";
+import { signOut } from "@firebase/auth";
 import CartContext from "../../../store/cart-context";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Nav, Navbar, Container, NavDropdown } from "react-bootstrap";
 import logo from "../../assets/images/logo.png";
 import searchIcon from "../../assets/images/search.svg";
@@ -62,7 +64,34 @@ const Styles = styled.div`
       top: 15px;
     }
   }
-
+  .logoutBtn {
+    margin-left: 10px;
+    background-color: #da490a;
+    border: none;
+    border-radius: 5px;
+    padding: 0 10px;
+    color: #fff;
+    font-size: 14px;
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+  .navbar-light .navbar-nav .nav-link.loginBtn {
+    margin-left: 10px;
+    background-color: #da490a;
+    border: none;
+    border-radius: 5px;
+    padding: 0 10px;
+    color: #fff;
+    height: 36px;
+    line-height: 36px;
+    font-size: 14px;
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+  }
   .navbar-collapse {
     @media (max-width: 991px) {
       background: #fff;
@@ -75,8 +104,31 @@ const Styles = styled.div`
 `;
 
 const Navigation = () => {
+  const history = useHistory();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   const cartContext = useContext(CartContext);
-  // const { cartItems } = props;
+
+  const onLogout = async () => {
+    try {
+      await signOut(auth);
+      localStorage.removeItem("authUser");
+      setIsLoggedIn(false);
+      history.push("/login");
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  useEffect(() => {
+    const token = localStorage.getItem("authUser");
+    if (token) {
+      setIsLoggedIn(true);
+    }
+  }, [isLoggedIn]);
+
+  const user = auth.currentUser;
+  // console.log(user);
 
   return (
     <Styles>
@@ -126,6 +178,7 @@ const Navigation = () => {
             </Nav.Link>
             <Nav.Link as={Link} to={"/user-profile"}>
               <img src={userIcon} alt="user" />
+              {user && user.displayName}
             </Nav.Link>
             <Nav.Link as={Link} to={"/cart"}>
               <img src={cartIcon} alt="cart" />
@@ -135,9 +188,17 @@ const Navigation = () => {
                 ""
               )}
             </Nav.Link>
-            {/* <Nav.Link as={Link} to={"/login"} className="btn btn-primary">
-              Login
-            </Nav.Link> */}
+            {user && (
+              <button className="logoutBtn" onClick={onLogout}>
+                Logout
+              </button>
+            )}
+
+            {!user && (
+              <Nav.Link as={Link} to={"/login"} className="loginBtn">
+                Login
+              </Nav.Link>
+            )}
           </Nav>
         </Container>
       </Navbar>
